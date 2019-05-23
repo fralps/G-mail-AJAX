@@ -29610,3 +29610,28 @@ Processing by EmailsController#destroy as JS
 Completed 200 OK in 26ms (Views: 14.4ms | ActiveRecord: 3.8ms)
 
 
+Started GET "/" for 127.0.0.1 at 2019-05-23 17:38:54 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  [1m[36mEmail Load (1.9ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  ↳ app/views/emails/_emails_list.html.erb:2
+  Rendered emails/_emails_list.html.erb (10.0ms)
+  Rendered emails/index.html.erb within layouts/application (15.0ms)
+  Rendered layouts/_navbar.html.erb (2.5ms)
+  Rendered layouts/_flash.html.erb (0.9ms)
+Completed 200 OK in 118ms (Views: 114.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/emails/99" for 127.0.0.1 at 2019-05-23 17:38:56 +0200
+Processing by EmailsController#show as JS
+  Parameters: {"id"=>"99"}
+  [1m[36mEmail Load (0.5ms)[0m  [1m[34mSELECT  "emails".* FROM "emails" WHERE "emails"."id" = $1 LIMIT $2[0m  [["id", 99], ["LIMIT", 1]]
+  ↳ app/controllers/emails_controller.rb:34
+  Rendering emails/show.js.erb
+  [1m[36mEmail Load (0.7ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  ↳ app/views/emails/_email_read.html.erb:9
+  Rendered emails/_email_read.html.erb (5.9ms)
+  Rendered emails/show.js.erb (9.0ms)
+Completed 200 OK in 19ms (Views: 13.7ms | ActiveRecord: 1.5ms)
+
+

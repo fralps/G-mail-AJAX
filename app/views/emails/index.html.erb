@@ -1,13 +1,13 @@
 <div class="container">
   <!-- Bouton pour recevoir un nouveau mail -->
-  <%= link_to "Recevoir un email", emails_path, method: "post", remote: true, class: "btn btn-primary mb-3", id: "btn-receive-mail" %>
+  <%= link_to "Receive an email", emails_path, method: "post", remote: true, class: "btn btn-primary mb-3", id: "btn-receive-mail" %>
   <div class="row">
     <div class="col">
       <table class="table">
         <thead>
           <tr>
-            <th scope="col" class="small-col">Liste des emails</th>
-            <th scope="col" class="big-col" id="secondColTitle">Aperçu</th>
+            <th scope="col" class="small-col">Emails list</th>
+            <th scope="col" class="big-col" id="secondColTitle">Preview</th>
           </tr>
         </thead>
         <tbody id="emails-list">
