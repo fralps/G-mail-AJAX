@@ -5,10 +5,16 @@
 @import "font-awesome";
 @import "components/*";
 
-// We add text decoration in order to add the line-through when we click the check box
 .checked {
 	text-decoration: line-through;
 }
 
+.small-col {
+	width: 25%;
+}
+
+.big-col {
+	width: 75%;
+}
 
 

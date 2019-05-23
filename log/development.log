@@ -14213,3 +14213,1048 @@ Processing by TasksController#update as JS
 Completed 200 OK in 28ms (Views: 4.0ms | ActiveRecord: 11.4ms)
 
 
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (6.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (138.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "todolist-app_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (128.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "todolist-app_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (566.2ms)[0m  [1m[35mCREATE DATABASE "todolist-app_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (302.3ms)[0m  [1m[35mCREATE DATABASE "todolist-app_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (14.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (12.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(34377518426153490)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateUsers (20181115104424)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (12.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181115104424_devise_create_users.rb:5
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20181115104424_devise_create_users.rb:39
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  ↳ db/migrate/20181115104424_devise_create_users.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181115104424"]]
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateCategories (20181115131426)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "title" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181115131426_create_categories.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181115131426"]]
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateTasks (20181116110123)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "title" character varying, "status" boolean DEFAULT FALSE, "deadline" timestamp, "category_id" bigint)[0m
+  ↳ db/migrate/20181116110123_create_tasks.rb:3
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE  INDEX  "index_tasks_on_category_id" ON "tasks"  ("category_id")[0m
+  ↳ db/migrate/20181116110123_create_tasks.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181116110123"]]
+  ↳ bin/rails:9
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddImagetoTask (20181116110124)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "tasks" ADD "image" character varying[0m
+  ↳ db/migrate/20181116110124_add_imageto_task.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181116110124"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-23 07:46:24.419548"], ["updated_at", "2019-05-23 07:46:24.419548"]]
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(34377518426153490)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(34377518426153490)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateEmails (20190523074709)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (16.6ms)[0m  [1m[35mCREATE TABLE "emails" ("id" bigserial primary key, "object" character varying, "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190523074709_create_emails.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190523074709"]]
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(34377518426153490)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ db/seeds.rb:11
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ db/seeds.rb:12
+  [1m[36mEmail Load (0.4ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Short story"], ["created_at", "2019-05-23 07:53:42.040498"], ["updated_at", "2019-05-23 07:53:42.040498"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mTask Create (0.4ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2019-05-23 07:53:42.052790"], ["updated_at", "2019-05-23 07:53:42.052790"], ["title", "The Golden Bowl"], ["deadline", "2019-05-29 00:00:00"], ["category_id", 1], ["image", "https://robohash.org/praesentiumvitaeut.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2019-05-23 07:53:42.057148"], ["updated_at", "2019-05-23 07:53:42.057148"], ["title", "Carrion Comfort"], ["deadline", "2019-06-02 00:00:00"], ["category_id", 1], ["image", "https://robohash.org/laboriosamaccusantiumexpedita.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2019-05-23 07:53:42.061090"], ["updated_at", "2019-05-23 07:53:42.061090"], ["title", "O Jerusalem!"], ["deadline", "2019-05-25 00:00:00"], ["category_id", 1], ["image", "https://robohash.org/corporisipsamdolor.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mCategory Create (0.2ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Textbook"], ["created_at", "2019-05-23 07:53:42.063878"], ["updated_at", "2019-05-23 07:53:42.063878"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mTask Create (0.2ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2019-05-23 07:53:42.066768"], ["updated_at", "2019-05-23 07:53:42.066768"], ["title", "No Highway"], ["deadline", "2019-05-24 00:00:00"], ["category_id", 2], ["image", "https://robohash.org/reruminventoreeos.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2019-05-23 07:53:42.069911"], ["updated_at", "2019-05-23 07:53:42.069911"], ["title", "Cabbages and Kings"], ["deadline", "2019-05-24 00:00:00"], ["category_id", 2], ["image", "https://robohash.org/blanditiisnihileaque.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2019-05-23 07:53:42.073156"], ["updated_at", "2019-05-23 07:53:42.073156"], ["title", "Stranger in a Strange Land"], ["deadline", "2019-06-13 00:00:00"], ["category_id", 2], ["image", "https://robohash.org/perspiciatisnatusillo.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Biography/Autobiography"], ["created_at", "2019-05-23 07:53:42.076097"], ["updated_at", "2019-05-23 07:53:42.076097"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2019-05-23 07:53:42.079172"], ["updated_at", "2019-05-23 07:53:42.079172"], ["title", "Precious Bane"], ["deadline", "2019-06-15 00:00:00"], ["category_id", 3], ["image", "https://robohash.org/doloressedvoluptatem.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2019-05-23 07:53:42.082445"], ["updated_at", "2019-05-23 07:53:42.082445"], ["title", "No Country for Old Men"], ["deadline", "2019-06-12 00:00:00"], ["category_id", 3], ["image", "https://robohash.org/molestiaedignissimosbeatae.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mTask Create (1.3ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2019-05-23 07:53:42.089885"], ["updated_at", "2019-05-23 07:53:42.089885"], ["title", "Let Us Now Praise Famous Men"], ["deadline", "2019-05-27 00:00:00"], ["category_id", 3], ["image", "https://robohash.org/sitremest.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mEmail Create (0.8ms)[0m  [1m[32mINSERT INTO "emails" ("object", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["object", "Qui voluptatem sed cupiditate."], ["body", "Beatae possimus neque. Veniam est sed."], ["created_at", "2019-05-23 07:53:42.127763"], ["updated_at", "2019-05-23 07:53:42.127763"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mEmail Create (0.4ms)[0m  [1m[32mINSERT INTO "emails" ("object", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["object", "Sunt consequatur distinctio facere."], ["body", "Ducimus quis et. Praesentium nemo est."], ["created_at", "2019-05-23 07:53:42.134336"], ["updated_at", "2019-05-23 07:53:42.134336"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mEmail Create (0.7ms)[0m  [1m[32mINSERT INTO "emails" ("object", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["object", "Reiciendis dolore et et."], ["body", "Qui est adipisci. Enim atque totam."], ["created_at", "2019-05-23 07:53:42.138771"], ["updated_at", "2019-05-23 07:53:42.138771"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mEmail Create (0.3ms)[0m  [1m[32mINSERT INTO "emails" ("object", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["object", "Cupiditate minus quis dolores."], ["body", "Eius saepe nesciunt. Natus sapiente quam."], ["created_at", "2019-05-23 07:53:42.143162"], ["updated_at", "2019-05-23 07:53:42.143162"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mEmail Create (0.3ms)[0m  [1m[32mINSERT INTO "emails" ("object", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["object", "Repellendus eveniet deserunt iure."], ["body", "Reiciendis animi est. Sed inventore voluptatem."], ["created_at", "2019-05-23 07:53:42.146600"], ["updated_at", "2019-05-23 07:53:42.146600"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mTask Destroy (0.4ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:11
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mTask Destroy (0.3ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = $1[0m  [["id", 2]]
+  ↳ db/seeds.rb:11
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mTask Destroy (0.2ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = $1[0m  [["id", 3]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mTask Destroy (0.2ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = $1[0m  [["id", 4]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mTask Destroy (0.3ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = $1[0m  [["id", 5]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mTask Destroy (0.2ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = $1[0m  [["id", 6]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mTask Destroy (0.2ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = $1[0m  [["id", 7]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mTask Destroy (0.2ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = $1[0m  [["id", 8]]
+  ↳ db/seeds.rb:11
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:11
+  [1m[36mTask Destroy (0.2ms)[0m  [1m[31mDELETE FROM "tasks" WHERE "tasks"."id" = $1[0m  [["id", 9]]
+  ↳ db/seeds.rb:11
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:11
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Destroy (0.3ms)[0m  [1m[31mDELETE FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:12
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Destroy (0.3ms)[0m  [1m[31mDELETE FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 2]]
+  ↳ db/seeds.rb:12
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:12
+  [1m[36mCategory Destroy (0.3ms)[0m  [1m[31mDELETE FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 3]]
+  ↳ db/seeds.rb:12
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:12
+  [1m[36mEmail Load (0.4ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mEmail Destroy (0.3ms)[0m  [1m[31mDELETE FROM "emails" WHERE "emails"."id" = $1[0m  [["id", 1]]
+  ↳ db/seeds.rb:13
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mEmail Destroy (0.3ms)[0m  [1m[31mDELETE FROM "emails" WHERE "emails"."id" = $1[0m  [["id", 2]]
+  ↳ db/seeds.rb:13
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mEmail Destroy (0.3ms)[0m  [1m[31mDELETE FROM "emails" WHERE "emails"."id" = $1[0m  [["id", 3]]
+  ↳ db/seeds.rb:13
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mEmail Destroy (0.3ms)[0m  [1m[31mDELETE FROM "emails" WHERE "emails"."id" = $1[0m  [["id", 4]]
+  ↳ db/seeds.rb:13
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:13
+  [1m[36mEmail Destroy (0.3ms)[0m  [1m[31mDELETE FROM "emails" WHERE "emails"."id" = $1[0m  [["id", 5]]
+  ↳ db/seeds.rb:13
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Mythology"], ["created_at", "2019-05-23 07:54:12.676346"], ["updated_at", "2019-05-23 07:54:12.676346"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mTask Create (0.4ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2019-05-23 07:54:12.682749"], ["updated_at", "2019-05-23 07:54:12.682749"], ["title", "Blood's a Rover"], ["deadline", "2019-05-26 00:00:00"], ["category_id", 4], ["image", "https://robohash.org/earumdelenitiut.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2019-05-23 07:54:12.686691"], ["updated_at", "2019-05-23 07:54:12.686691"], ["title", "The Little Foxes"], ["deadline", "2019-05-30 00:00:00"], ["category_id", 4], ["image", "https://robohash.org/maioresettenetur.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2019-05-23 07:54:12.690319"], ["updated_at", "2019-05-23 07:54:12.690319"], ["title", "Nectar in a Sieve"], ["deadline", "2019-06-04 00:00:00"], ["category_id", 4], ["image", "https://robohash.org/quidemvoluptatemsunt.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Essay"], ["created_at", "2019-05-23 07:54:12.693701"], ["updated_at", "2019-05-23 07:54:12.693701"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2019-05-23 07:54:12.697235"], ["updated_at", "2019-05-23 07:54:12.697235"], ["title", "That Hideous Strength"], ["deadline", "2019-05-29 00:00:00"], ["category_id", 5], ["image", "https://robohash.org/delenitimolestiasvoluptatum.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2019-05-23 07:54:12.700851"], ["updated_at", "2019-05-23 07:54:12.700851"], ["title", "Fear and Trembling"], ["deadline", "2019-05-31 00:00:00"], ["category_id", 5], ["image", "https://robohash.org/nisiveldistinctio.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2019-05-23 07:54:12.704371"], ["updated_at", "2019-05-23 07:54:12.704371"], ["title", "Bury My Heart at Wounded Knee"], ["deadline", "2019-06-08 00:00:00"], ["category_id", 5], ["image", "https://robohash.org/etipsamat.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:16
+  [1m[36mCategory Create (0.3ms)[0m  [1m[32mINSERT INTO "categories" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "Narrative nonfiction"], ["created_at", "2019-05-23 07:54:12.707792"], ["updated_at", "2019-05-23 07:54:12.707792"]]
+  ↳ db/seeds.rb:16
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2019-05-23 07:54:12.711199"], ["updated_at", "2019-05-23 07:54:12.711199"], ["title", "A Summer Bird-Cage"], ["deadline", "2019-05-26 00:00:00"], ["category_id", 6], ["image", "https://robohash.org/cumharummodi.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2019-05-23 07:54:12.714606"], ["updated_at", "2019-05-23 07:54:12.714606"], ["title", "Time To Murder And Create"], ["deadline", "2019-06-14 00:00:00"], ["category_id", 6], ["image", "https://robohash.org/etquodfugit.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:22
+  [1m[36mTask Create (0.3ms)[0m  [1m[32mINSERT INTO "tasks" ("created_at", "updated_at", "title", "deadline", "category_id", "image") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2019-05-23 07:54:12.718676"], ["updated_at", "2019-05-23 07:54:12.718676"], ["title", "Tender Is the Night"], ["deadline", "2019-06-03 00:00:00"], ["category_id", 6], ["image", "https://robohash.org/rerumquimolestias.png?size=300x300&set=set1"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:22
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mEmail Create (0.3ms)[0m  [1m[32mINSERT INTO "emails" ("object", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["object", "Numquam consequatur quisquam consectetur."], ["body", "Eum dolorem rerum. Mollitia ut fuga."], ["created_at", "2019-05-23 07:54:12.722734"], ["updated_at", "2019-05-23 07:54:12.722734"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mEmail Create (0.7ms)[0m  [1m[32mINSERT INTO "emails" ("object", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["object", "Voluptatibus quis error pariatur."], ["body", "Qui vitae doloribus. Nulla eveniet dicta."], ["created_at", "2019-05-23 07:54:12.728276"], ["updated_at", "2019-05-23 07:54:12.728276"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mEmail Create (0.4ms)[0m  [1m[32mINSERT INTO "emails" ("object", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["object", "Est sapiente aut nulla."], ["body", "Sint sapiente mollitia. Necessitatibus vel consectetur."], ["created_at", "2019-05-23 07:54:12.734510"], ["updated_at", "2019-05-23 07:54:12.734510"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mEmail Create (0.4ms)[0m  [1m[32mINSERT INTO "emails" ("object", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["object", "Nobis aut et pariatur."], ["body", "Dolorem rerum dolores. Commodi molestiae quia."], ["created_at", "2019-05-23 07:54:12.739546"], ["updated_at", "2019-05-23 07:54:12.739546"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:27
+  [1m[36mEmail Create (0.3ms)[0m  [1m[32mINSERT INTO "emails" ("object", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["object", "Ea delectus odio et."], ["body", "Neque quidem sapiente. Quis aut labore."], ["created_at", "2019-05-23 07:54:12.744624"], ["updated_at", "2019-05-23 07:54:12.744624"]]
+  ↳ db/seeds.rb:27
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:27
+  [1m[36mEmail Load (0.6ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:13:12 +0200
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/francois/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (uninitialized constant EmailController):
+  
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:74:in `block in load_missing_constant'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:8:in `without_bootsnap_cache'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:74:in `rescue in load_missing_constant'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:56:in `load_missing_constant'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:283:in `const_get'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:283:in `block in constantize'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `constantize'
+actionpack (5.2.1) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.1) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:46:in `controller'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:15:30 +0200
+  
+ActionController::RoutingError (uninitialized constant EmailController):
+  
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:74:in `block in load_missing_constant'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:8:in `without_bootsnap_cache'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:74:in `rescue in load_missing_constant'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:56:in `load_missing_constant'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:283:in `const_get'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:283:in `block in constantize'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `constantize'
+actionpack (5.2.1) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.1) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:46:in `controller'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:18:37 +0200
+  
+ActionController::RoutingError (uninitialized constant EmailController):
+  
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:74:in `block in load_missing_constant'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:8:in `without_bootsnap_cache'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:74:in `rescue in load_missing_constant'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:56:in `load_missing_constant'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:283:in `const_get'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:283:in `block in constantize'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `constantize'
+actionpack (5.2.1) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.1) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:46:in `controller'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:19:36 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_navbar.html.erb (2.8ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 6417ms (Views: 6416.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:21:18 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navbar.html.erb (1.1ms)
+  Rendered layouts/_flash.html.erb (0.4ms)
+Completed 200 OK in 28ms (Views: 27.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:21:54 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 36ms (Views: 34.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:23:07 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navbar.html.erb (1.2ms)
+  Rendered layouts/_flash.html.erb (0.4ms)
+Completed 200 OK in 32ms (Views: 30.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:24:02 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_navbar.html.erb (1.0ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 44ms (Views: 42.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:25:03 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 38ms (Views: 36.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:25:27 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 37ms (Views: 36.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:25:29 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 37ms (Views: 36.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:25:50 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 37ms (Views: 35.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:26:01 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navbar.html.erb (1.0ms)
+  Rendered layouts/_flash.html.erb (0.5ms)
+Completed 200 OK in 58ms (Views: 57.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:26:02 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navbar.html.erb (2.2ms)
+  Rendered layouts/_flash.html.erb (0.8ms)
+Completed 200 OK in 54ms (Views: 53.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:26:30 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_navbar.html.erb (1.0ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 55ms (Views: 53.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:27:27 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navbar.html.erb (1.4ms)
+  Rendered layouts/_flash.html.erb (0.5ms)
+Completed 200 OK in 33ms (Views: 32.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:28:37 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navbar.html.erb (1.2ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 44ms (Views: 42.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:28:44 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navbar.html.erb (1.1ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 34ms (Views: 33.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:28:51 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 34ms (Views: 33.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:28:56 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 39ms (Views: 37.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:29:04 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 30ms (Views: 29.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:29:11 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 35ms (Views: 33.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:29:15 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+  Rendered layouts/_flash.html.erb (0.4ms)
+Completed 200 OK in 37ms (Views: 35.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:29:22 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 34ms (Views: 33.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:29:28 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navbar.html.erb (1.3ms)
+  Rendered layouts/_flash.html.erb (0.5ms)
+Completed 200 OK in 37ms (Views: 36.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:29:30 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navbar.html.erb (1.0ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 41ms (Views: 39.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:29:33 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navbar.html.erb (1.0ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 41ms (Views: 40.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:29:46 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navbar.html.erb (1.2ms)
+  Rendered layouts/_flash.html.erb (0.5ms)
+Completed 200 OK in 34ms (Views: 33.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:30:50 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_navbar.html.erb (1.0ms)
+  Rendered layouts/_flash.html.erb (0.5ms)
+Completed 200 OK in 104ms (Views: 98.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:31:03 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_navbar.html.erb (1.1ms)
+  Rendered layouts/_flash.html.erb (0.5ms)
+Completed 200 OK in 40ms (Views: 37.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:32:34 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navbar.html.erb (1.0ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 3024ms (Views: 3023.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:32:54 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navbar.html.erb (1.1ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 2985ms (Views: 2983.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:33:34 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navbar.html.erb (1.8ms)
+  Rendered layouts/_flash.html.erb (0.4ms)
+Completed 200 OK in 3103ms (Views: 3102.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:38:14 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  [1m[36mEmail Load (0.6ms)[0m  [1m[34mSELECT  "emails".* FROM "emails" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /home/francois/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  Rendered emails/index.html.erb within layouts/application (18.3ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 5.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `object' for #<Email::ActiveRecord_Relation:0x00007f3c15dc9580>
+Did you mean?  object_id):
+    10:         </thead>
+    11:         <tbody>
+    12:           <tr>
+    13:             <td><%= @emails.object%></td>
+    14:             <td><%= @emails.body%></td>
+    15:           </tr>
+    16:         </tbody>
+  
+app/views/emails/index.html.erb:13:in `_app_views_emails_index_html_erb___4187959129605703404_69948020755560'
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:38:26 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navbar.html.erb (1.4ms)
+  Rendered layouts/_flash.html.erb (0.5ms)
+Completed 200 OK in 37ms (Views: 35.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:38:37 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navbar.html.erb (1.0ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 34ms (Views: 33.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:38:50 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navbar.html.erb (1.2ms)
+  Rendered layouts/_flash.html.erb (0.4ms)
+Completed 200 OK in 35ms (Views: 34.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:38:57 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_navbar.html.erb (2.2ms)
+  Rendered layouts/_flash.html.erb (0.5ms)
+Completed 200 OK in 80ms (Views: 77.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:39:07 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navbar.html.erb (1.7ms)
+  Rendered layouts/_flash.html.erb (0.5ms)
+Completed 200 OK in 40ms (Views: 38.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:40:03 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_navbar.html.erb (1.4ms)
+  Rendered layouts/_flash.html.erb (0.5ms)
+Completed 200 OK in 46ms (Views: 44.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:40:18 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 34ms (Views: 33.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:40:53 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  Rendered emails/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 35ms (Views: 34.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:44:05 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  [1m[36mEmail Load (0.3ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  ↳ app/views/emails/index.html.erb:13
+  Rendered emails/index.html.erb within layouts/application (320.3ms)
+Completed 500 Internal Server Error in 324ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `task' for #<#<Class:0x00007f3c15dc02c8>:0x000056220433d610>):
+    11:         <tbody>
+    12:           <tr>
+    13:             <% @emails.each do |email| %>
+    14:             <td><%= task.object%></td>
+    15:             <td><%= task.body%></td>
+    16:             <% end %>
+    17:           </tr>
+  
+app/views/emails/index.html.erb:14:in `block in _app_views_emails_index_html_erb___4187959129605703404_47352049697500'
+app/views/emails/index.html.erb:13:in `_app_views_emails_index_html_erb___4187959129605703404_47352049697500'
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:44:27 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  [1m[36mEmail Load (0.4ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  ↳ app/views/emails/index.html.erb:13
+  Rendered emails/index.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navbar.html.erb (1.8ms)
+  Rendered layouts/_flash.html.erb (0.5ms)
+Completed 200 OK in 61ms (Views: 59.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:44:58 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  [1m[36mEmail Load (0.8ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  ↳ app/views/emails/index.html.erb:13
+  Rendered emails/index.html.erb within layouts/application (5.7ms)
+  Rendered layouts/_navbar.html.erb (0.8ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 67ms (Views: 59.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 10:45:11 +0200
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  [1m[36mEmail Load (0.5ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  ↳ app/views/emails/index.html.erb:13
+  Rendered emails/index.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered layouts/_flash.html.erb (0.3ms)
+Completed 200 OK in 42ms (Views: 39.9ms | ActiveRecord: 0.5ms)
+
+

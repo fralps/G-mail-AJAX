@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th scope="col" class="small-col">Liste des emails</th>
+            <th scope="col" class="big-col">Email sélectionné</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <% @emails.each do |email| %>
+            <td><%= email.object%></td>
+            <td><%= email.body%></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
