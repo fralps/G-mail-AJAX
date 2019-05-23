@@ -1,0 +1,17 @@
+// We grab the task and we stock it in a variable
+var currentTask = document.getElementById("<%= @task.id %>");
+
+// We grab the checkbox and we stock it in a variable
+var currentTaskCheckBox = currentTask.getElementsByTagName('input')[0];
+
+// With jQuery we add and remove classes if the check is already checked or not,
+// and we add css (text-decoration, line-through)
+$(document).ready(function() {
+  if (currentTaskCheckBox.checked) {
+    $(currentTask).removeClass('unchecked');
+    $(currentTask).addClass('checked');
+  } else {
+    $(currentTask).removeClass('checked');
+    $(currentTask).addClass('unchecked');
+  };
+});

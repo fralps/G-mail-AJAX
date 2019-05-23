@@ -1,0 +1,7 @@
+ <li class="to-fade unchecked" id="<%=task.id%>">
+ 	<%= check_box_tag :name, 1, false, data: {remote: true, url: task_path(task.id), params: { id: task.id, status: true}.to_param, method: "put" }%>
+ 	<%= task.title  %>, to read: <%= task.deadline.strftime('%D')  %>
+ 	<%= link_to(task_path(task.id), data: {confirm: "Are you sure?"}, method: "delete", remote: true) do %>
+ 	<i class="fas fa-trash-alt text-danger"></i>
+ 	<% end %>
+ </li>

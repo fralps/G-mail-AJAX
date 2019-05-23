@@ -1,0 +1,8 @@
+// We stock the <li> in a varibale
+var currentTask = document.getElementById("<%= @task.id %>");
+
+// We add a fadeOut for the deleted <li>
+$(document).ready(function() {
+	$(currentTask).fadeOut('slow');
+});
+

@@ -1,0 +1,8 @@
+$(document).ready(function() {
+	// We hide the li just before doing a fadeIn 
+	$('.to-fade').last().hide();
+	$('.to-fade').last().fadeIn('slow');
+});
+
+// We grab the category title and we add the new <li> created by the task_form
+document.getElementById("<%= @category.title %>").insertAdjacentHTML("beforeend", "<%= j render 'task', task: @task %>");
