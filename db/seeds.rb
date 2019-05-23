@@ -25,6 +25,6 @@ end
 
 5.times do
 	my_email = Email.create(object: Faker::Lorem.sentence(4),
-													body: Faker::Lorem.paragraph(60))
+													body: Faker::Lorem.paragraph(20))
 	puts "Email added"
 end

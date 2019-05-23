@@ -1,0 +1,23 @@
+<tr>
+	<td style="padding:0; border:none;">
+		<table class="table" style="border:none">
+				<% @emails.each do |email| %>
+			<tbody style="margin: 0; padding: 0; border:none;">
+				<tr>
+					<td>
+						<%= link_to email.object, email_path(email.id), method: "get", remote: true %>    
+					</td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</td>
+	<!-- Affichage de l'aperçu -->
+	<td class="email-content">
+			<%= link_to " < Back to List", root_path %>               
+			<h3 class="mt-2"><%= @email.object %></h3>
+			<p class="text-justify"><%= @email.body %></p>
+			<%= link_to "Delete", "#", remote: false, class: "btn btn-sm btn-danger" %>               
+			<%= link_to "Mark as unread", "#", remote: false, class: "btn btn-sm btn-info" %>         
+	</td>
+</tr>
