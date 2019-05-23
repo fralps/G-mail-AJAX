@@ -1,0 +1,14 @@
+<!-- HTML pour afficher le contenu du mail en AJAX -->
+<div class="container">
+	<div class="row">
+		<div class="col p-3">
+			<!-- Objet -->
+			<h4><%= @email.object %></h4>
+			<!-- Contenu -->
+			<p class="text-justify"><%= @email.body %></p>
+			<!-- Boutons -->
+			<%= link_to "Delete", "#", remote: false, class: "btn btn-sm btn-danger" %>               
+			<%= link_to "Mark as unread", "#", remote: false, class: "btn btn-sm btn-info" %>               
+		</div>
+	</div>
+</div>

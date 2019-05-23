@@ -1,19 +1,27 @@
 <div class="container">
+  <!-- Bouton pour recevoir un nouveau mail -->
   <%= link_to "Recevoir un email", emails_path, method: "post", remote: true, class: "btn btn-primary mb-3" %>
   <div class="row">
     <div class="col">
-      <table class="table table-hover table-bordered">
+      <table class="table table-hover">
         <thead>
           <tr>
             <th scope="col" class="small-col">Liste des emails</th>
-            <th scope="col" class="big-col">Email sélectionné</th>
+            <th scope="col" class="big-col">Aperçu</th>
           </tr>
         </thead>
         <tbody id="emails-list">
           <tr>
+            <!-- Affichage des mails existants via une boucle -->
             <% @emails.each do |email| %>
-            <td><%= email.object%></td>
-            <td><%= email.body%></td>
+            <td>
+              <!-- Affichage de l'objet -->
+              <%= link_to email.object, email_path(email.id), method: "get", remote: true %>               
+            </td>
+            <!-- Affichage d'un aperçu du contenu grâce à truncate, on donne l'id de l'email au TD pour le cibler plus facilement dans le JS -->
+            <td id="<%= email.id %>">
+              <%= email.body.truncate_words(10)%>
+            </td>
           </tr>
           <% end %>
         </tbody>

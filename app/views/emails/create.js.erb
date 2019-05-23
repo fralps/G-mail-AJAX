@@ -1,6 +1,8 @@
+// jQuery pour l'effet d'animation
 $(document).ready(function() {
 	$('.to-fade').last().hide();
 	$('.to-fade').last().fadeIn('slow');
 });
 
+// Affichage du nouveau mail
 document.getElementById("emails-list").insertAdjacentHTML("beforeend", "<%= j render 'email', email: @email %>");

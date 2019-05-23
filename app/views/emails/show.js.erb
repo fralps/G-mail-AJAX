@@ -1,0 +1,16 @@
+// On récupère la cellule du tableau où charger le contenu du mail grâce à son id
+var thisMail = document.getElementById("<%=@email.id%>");
+
+$(document).ready(function() {
+
+	// Ce script s'éxecute lorsqu'on clique sur l'objet du mail,
+	// si le mail est ouvert et le contenu affiché on veut refermé le mail,
+	// et remettre la version tronquée, sinon on veut l'ouvrir et afficher son contenu.
+	if (thisMail.classList.contains("opened")) {
+		thisMail.innerHTML = "<%= @email.body.truncate_words(10)%>";
+		$(thisMail).removeClass("opened");
+	} else { 
+		$(thisMail).addClass("opened");
+		thisMail.innerHTML="<%= j render 'email_content', email: @email %>";
+	};
+});

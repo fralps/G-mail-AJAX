@@ -1,4 +1,5 @@
+ <!-- HTML ajouté à la création d'un nouvel e-mail, on lui applique la classe to-fade pour facilier l'animation via jQuery -->
  <tr class="to-fade">
- 	<td><%= @email.object%></td>
- 	<td><%= @email.body%></td>
+ 	<td><%= link_to email.object, email_path(email.id), method: "get", remote: true %></td>
+ 	<td id="<%= @email.id %>"><%= @email.body.truncate_words(10)%></td>
  </tr>

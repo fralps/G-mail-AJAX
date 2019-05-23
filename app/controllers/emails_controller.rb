@@ -4,25 +4,30 @@ class EmailsController < ApplicationController
   end
 
   def create
-  	@email = Email.new(object: Faker::Lorem.sentence(4),
-  												body: Faker::Lorem.paragraph)
+    # Creation d'un nouvel e-mail
+  	@email = Email.create(
+      object: Faker::Lorem.sentence(4),
+      body: Faker::Lorem.paragraph
+      )
 
-  	if @email.save
-
-      respond_to do |format|
-        format.html { redirect_to root_path }
-        format.js { }
-      end
-      flash[:notice] = "You received an email"
-    else
-      redirect_to root_path
-      flash[:notice] = "Something went wrong"
+    # Permet le remote et l'execution AJAX
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { }
     end
   end
 
   def destroy  	
   end
 
-  def show  	
+  def show
+    @email = Email.find(params[:id])	
+
+    # Permet le remote et l'execution AJAX
+    respond_to do |format|
+      format.html { redirect_to email_path(@email.id) }
+      format.js { }
+    end
   end
+  
 end

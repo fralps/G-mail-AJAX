@@ -1,0 +1,12 @@
+<!-- Page show, affiché si il n'y a pas de remote (si le JS est desactivé)-->
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<h3><%= @email.object %></h3>
+			<p class="text-justify"><%= @email.body %></p>
+			<%= link_to "Delete", "#", remote: false, class: "btn btn-sm btn-danger" %>               
+			<%= link_to "Mark as unread", "#", remote: false, class: "btn btn-sm btn-info" %>               
+		</div>
+	</div>
+</div>
+
