@@ -1,10 +1,16 @@
+<!-- On ajoute une ligne globale, qui contient le code suivant : -->
 <tr>
+	<!-- Une cellule avec la liste de tous les mails -->
 	<td style="padding:0; border:none;">
+		<!-- La liste de mails étant composée de tr, on stock le tout dans une nouvelle table pour éviter
+			de casser la mise en page, et on lui retire ses border et margins -->
 		<table class="table" style="border:none">
+			<!-- On récupère la liste de mails et on affiche leurs objets -->
 				<% @emails.each do |email| %>
 			<tbody style="margin: 0; padding: 0; border:none;">
 				<tr>
 					<td>
+						<!-- Bouton pour déclencher la méthode show de l'email -->
 						<%= link_to email.object, email_path(email.id), method: "get", remote: true %>    
 					</td>
 				</tr>
@@ -12,7 +18,7 @@
 			</tbody>
 		</table>
 	</td>
-	<!-- Affichage de l'aperçu -->
+	<!-- Une cellule avec le contenu du mail -->
 	<td class="email-content">
 			<%= link_to " < Back to List", root_path %>               
 			<h3 class="mt-2"><%= @email.object %></h3>

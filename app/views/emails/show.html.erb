@@ -4,6 +4,7 @@
 		<div class="col">
 			<h3><%= @email.object %></h3>
 			<p class="text-justify"><%= @email.body %></p>
+			<%= link_to " < Back to List", root_path %> 
 			<%= link_to "Delete", "#", remote: false, class: "btn btn-sm btn-danger" %>               
 			<%= link_to "Mark as unread", "#", remote: false, class: "btn btn-sm btn-info" %>               
 		</div>
