@@ -2,7 +2,7 @@
 
 **Pair programmers:** Thomas Guilmin & François Loupias  
 
-**Version in production:** [Heroku Version](https://thp-gmail-like.herokuapp.com/)
+**Version in production:** [Gmail like 👍](https://thp-gmail-like.herokuapp.com/)
 
 ### Add an email with AJAX
 
@@ -11,6 +11,7 @@
 ### Display an email with AJAX
 
 * Display an email with AJAX that display the object, the content, a delete and a mark as unread buttons (but inactive for the moment). ✔️  
+* We struggle to implement a preview of the emails. ✔️  
 
 ### Delete an email with AJAX
 
@@ -18,14 +19,14 @@
 
 ### Read and unread email with AJAX
 
-* Pass a migration to add a column in our table named "read" which is a boolean and update the seed.  
+* Pass a migration to add a column in our table named "read" which is a boolean and update the seed. ✔️  
 
-* Update this attibute in the database.  
+* Update this attibute in the database. ✔️  
 
-* With the "Mark as unread" button we can change the style of the emails" object. We can also change the content of the button in function of the status of read attribute.  
+* With the "Mark as unread" button we can change the style of the emails" object. We can also change the content of the button in function of the status of read attribute. ✔️  
 
 ### Ultimate level in AJAX
 
-* We can click in the entire box also.  
+* We can click in the entire box also. ❌  
 
 *Thank you for the correction*
