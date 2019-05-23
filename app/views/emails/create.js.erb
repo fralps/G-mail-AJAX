@@ -1,8 +1,8 @@
+// Affichage du nouveau mail
+document.getElementById("emails-list").getElementsByTagName('tr')[0].insertAdjacentHTML("beforebegin", "<%= j render 'email', email: @email %>");
+
 // jQuery pour l'effet d'animation
 $(document).ready(function() {
-	$('.to-fade').last().hide();
-	$('.to-fade').last().fadeIn('slow');
+	$('.to-fade').first().hide();
+	$('.to-fade').first().fadeIn('slow');
 });
-
-// Affichage du nouveau mail
-document.getElementById("emails-list").insertAdjacentHTML("beforeend", "<%= j render 'email', email: @email %>");

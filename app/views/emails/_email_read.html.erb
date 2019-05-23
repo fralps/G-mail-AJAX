@@ -4,26 +4,30 @@
 	<td style="padding:0; border:none;">
 		<!-- La liste de mails étant composée de tr, on stock le tout dans une nouvelle table pour éviter
 			de casser la mise en page, et on lui retire ses border et margins -->
-		<table class="table" style="border:none">
-			<!-- On récupère la liste de mails et on affiche leurs objets -->
+			<table class="table" style="border:none">
+				<!-- On récupère la liste de mails et on affiche leurs objets -->
 				<% @emails.each do |email| %>
-			<tbody style="margin: 0; padding: 0; border:none;">
-				<tr>
-					<td>
-						<!-- Bouton pour déclencher la méthode show de l'email -->
-						<%= link_to email.object, email_path(email.id), method: "get", remote: true %>    
-					</td>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
-	</td>
-	<!-- Une cellule avec le contenu du mail -->
-	<td class="email-content">
+				<tbody style="margin: 0; padding: 0; border:none;">
+					<tr>
+						<td>
+							<!-- Bouton pour déclencher la méthode show de l'email On met un if / else pour vérifier si le mail a déjà été lu et éditer en fonction-->
+							<% if email.wasread == false %>
+							<%= link_to email.object, email_path(email.id), method: "get", remote: true, class: "unread", id: email.id %> 
+							<% else %>
+							<%= link_to email.object, email_path(email.id), method: "get", remote: true, id: email.id %> 
+							<% end %>  
+						</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</td>
+		<!-- Une cellule avec le contenu du mail -->
+		<td class="email-content">
 			<%= link_to " < Back to List", root_path %>               
-			<h3 class="mt-2"><%= @email.object %></h3>
+			<h3 class="mt-2 unread"><%= @email.object %></h3>
 			<p class="text-justify"><%= @email.body %></p>
 			<%= link_to "Delete", email_path(@email.id), data: {confirm:'Are you sure ?'}, method: 'delete', remote: true, class: "btn btn-sm btn-danger" %>               
 			<%= link_to "Mark as unread", "#", remote: false, class: "btn btn-sm btn-info" %>     
-	</td>
-</tr>
+		</td>
+	</tr>

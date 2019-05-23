@@ -8,10 +8,12 @@
 
 require 'faker'
 
+# At each seed, we delate the content of the database
 Task.destroy_all
 Category.destroy_all
 Email.destroy_all
 
+# Categories for thursday's exercise
 3.times do
   my_category = Category.create(title: Faker::Book.genre)
   3.times do
@@ -23,8 +25,10 @@ Email.destroy_all
   end
 end
 
+# We create mails
 5.times do
 	my_email = Email.create(object: Faker::Lorem.sentence(4),
-													body: Faker::Lorem.paragraph(20))
+													body: Faker::Lorem.paragraph(20),
+                          wasread: false)
 	puts "Email added"
 end
