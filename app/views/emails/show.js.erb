@@ -13,6 +13,7 @@ secondColTitle.textContent = "<%=@email.object%>";
 
 // jQuery pour l'effet d'animation
 $(document).ready(function() {
+	$('#<%=@email.id%>').removeClass("unread");
 	$('#<%=@email.id%>').css('text-decoration','underline');
 	$('#<%=@email.id%>').css('color','#004FA3');
 });

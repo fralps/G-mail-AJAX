@@ -1,0 +1,7 @@
+$(document).ready(function() {
+	$('#<%=@email.id%>').addClass("unread");
+	$('.btn-mark-unread').removeClass("btn");
+	$('.btn-mark-unread').removeClass("btn-sm");
+	$('.btn-mark-unread').removeClass("btn-info");
+	$('.btn-mark-unread').text("✔️");
+});

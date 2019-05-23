@@ -28,6 +28,6 @@
 			<h3 class="mt-2 unread"><%= @email.object %></h3>
 			<p class="text-justify"><%= @email.body %></p>
 			<%= link_to "Delete", email_path(@email.id), data: {confirm:'Are you sure ?'}, method: 'delete', remote: true, class: "btn btn-sm btn-danger" %>               
-			<%= link_to "Mark as unread", "#", remote: false, class: "btn btn-sm btn-info" %>     
+			<%= link_to "Mark as unread", email_path(@email.id), method: "put", remote: true, class: "btn btn-sm btn-info btn-mark-unread ml-2" %>     
 		</td>
 	</tr>

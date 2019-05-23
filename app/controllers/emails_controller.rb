@@ -19,10 +19,19 @@ class EmailsController < ApplicationController
   end
 
   def destroy  
-    @emails = Email.all.reverse
     @email = Email.find(params[:id])
+    @email.destroy  
+    @emails = Email.all.reverse 	
 
-    @email.destroy  	
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { }
+    end
+  end
+
+  def update
+    @email = Email.find(params[:id]) 
+    @email.update(wasread: false)
 
     respond_to do |format|
       format.html { redirect_to root_path }
