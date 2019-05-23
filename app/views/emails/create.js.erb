@@ -1,0 +1,6 @@
+$(document).ready(function() {
+	$('.to-fade').last().hide();
+	$('.to-fade').last().fadeIn('slow');
+});
+
+document.getElementById("emails-list").insertAdjacentHTML("beforeend", "<%= j render 'email', email: @email %>");

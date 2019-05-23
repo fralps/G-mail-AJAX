@@ -13,7 +13,6 @@ class EmailsController < ApplicationController
         format.html { redirect_to root_path }
         format.js { }
       end
-
       flash[:notice] = "You received an email"
     else
       redirect_to root_path
