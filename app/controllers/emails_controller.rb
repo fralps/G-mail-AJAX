@@ -5,7 +5,7 @@ class EmailsController < ApplicationController
 
   def create
     # Creation d'un nouvel e-mail
-  	@email = Email.create(
+    @email = Email.create(
       object: Faker::Lorem.sentence(4),
       body: Faker::Lorem.paragraph(20)
       )
@@ -17,7 +17,16 @@ class EmailsController < ApplicationController
     end
   end
 
-  def destroy  	
+  def destroy  
+    @emails = Email.all
+    @email = Email.find(params[:id])
+
+    @email.destroy  	
+
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { }
+    end
   end
 
   def show

@@ -1,0 +1,13 @@
+<!-- Affichage des mails existants via une boucle -->
+<% @emails.each do |email| %>
+<tr id="<%= email.id %>">
+  <!-- Affichage de l'objet -->
+  <td class="email-object">
+    <%= link_to email.object, email_path(email.id), method: "get", remote: true %>            
+  </td>
+  <!-- Affichage de l'aperçu -->
+  <td class="email-content">
+    <%= email.body.truncate_words(10)%>
+  </td>
+</tr>
+<% end %>

@@ -2,10 +2,12 @@
 var mailsContainer = document.getElementById("emails-list");
 var secondColTitle = document.getElementById("secondColTitle");
 
+
+$(document).ready(function() {
+	mailsContainer.innerHTML = "<%= j render 'emails_list', email: @email %>";
+});
 // On vide totalement le contenu du tableau (en gardant son header),
 // et on le remplace par le contenu du partial _email_read.html.erb
-mailsContainer.innerHTML = "<%= j render 'email_read', email: @email %>";
 
-// On change le titre de la seconde colonne (juque là "Aperçu") pour
-// l'objet du mail
-secondColTitle.textContent = "<%=@email.object%>";
+// On change le titre de la seconde colonne pour remettre "Aperçu"
+secondColTitle.textContent = "Aperçu";
